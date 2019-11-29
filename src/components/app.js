@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 
 const App = ()=>{
 
-    console.dir(store.getState())
+    console.log(store.getState())
 
     return (
         <Provider store={store}>            
