@@ -1,21 +1,34 @@
-import React, {useState} from 'react'
+import React, {Component, useState} from 'react';
+import { connect } from 'react-redux';
+import tempAction from '../actions/tempAction';
+import store from '../store/store'
 
-const New = () => {
-    
-    const count = useState(0);
-    console.log(count[0]);
-    const handleOnClick = () => {
-        count[1](count[0]+1);
+class New extends Component {
+    constructor(props){
+        super(props);
     }
-
-    return (
+    componentDidMount(){
+        // this.props.tempAction();
+    }
+    render(){
+        const {count, dispatch, isLoading} = this.props;
+        console.log(store)
+        console.dir(this.props)
+        return (
         <div>
             hello world
             My React App can go through
-            <button onClick={handleOnClick}>Inc Count</button>
-            <p>{count[0]}</p>
-        </div>
-    )
+            {/* <button onClick={handleOnClick}>Inc Count</button> */}
+            {/* <p>{count[0]}</p> */}
+        </div>)
+    }
 }
 
-export default New;
+const mapStateToProps = (state={}) => {
+    return {...state}
+}
+
+const mapDispatchToProps = 
+   {tempAction : tempAction}
+
+export default connect(mapStateToProps)(New);

@@ -1,4 +1,4 @@
-const tempReducer = (state={}, action) => {
+export const tempReducer = (state={}, action) => {
     console.log(action)
     switch(action.type) {
         case "temp" :
@@ -10,12 +10,10 @@ const tempReducer = (state={}, action) => {
 
 export const nextReducer = (state='', action) => {
     switch(action.type) {
-        case "temp" :
+        case "temp1" :
             return action.payload
         default:
             return "next reducer";
     }
     
 }
-
-export default tempReducer;
